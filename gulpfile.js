@@ -59,7 +59,7 @@ var webserver = require('gulp-webserver');
 
 var myplugin = require('postcss-myplugin');
 
-var pixelstorem = require('postcss-pixelstorem');
+var pixelstorem = require('postcss-pixels-to-rem');
 
 var paths = {
   pageTemplates : {
@@ -175,7 +175,8 @@ gulp.task('css', function() {
     pixelstorem({
       base: 16,
       unit: "rem",
-      exclude: ['border']
+      exclude: ['border'],
+      mediaQueries: true
     }),
     myplugin({
         fontstacks: {
