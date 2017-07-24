@@ -59,6 +59,7 @@ var htmltidy = require('gulp-htmltidy'),
 
 // web server
 var webserver = require('gulp-webserver');
+var pixelstorem = require('postcss-pixels-to-rem');
 
 var paths = {
   pageTemplates : {
@@ -212,8 +213,14 @@ gulp.task('lint', function() {
 gulp.task('css', function() {
   var plugins = [
     autoprefixer({browsers: ['last 2 versions']}),
-    // cssnano()
-    gradient()
+    // cssnano(),
+    gradient(),
+    pixelstorem({
+      base: 16,
+      unit: "rem",
+      exclude: ['border'],
+      mediaQueries: true
+    })
   ];
   gulp.src([paths.styles.input, paths.styles.exclude])
    .pipe(scsslint())
