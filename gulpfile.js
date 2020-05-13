@@ -12,7 +12,7 @@ var concat = require('gulp-concat'),
 //css
 var sass = require('gulp-sass'),
     cleanCSS = require('gulp-clean-css'),
-    scsslint = require('gulp-scss-lint'),
+    // scsslint = require('gulp-scss-lint'),
     autoprefixer = require('autoprefixer'),
     cssbeautify = require('gulp-cssbeautify');
 
@@ -223,7 +223,7 @@ gulp.task('css', function() {
     })
   ];
   gulp.src([paths.styles.input, paths.styles.exclude])
-   .pipe(scsslint())
+  //  .pipe(scsslint())
    .pipe(sass({
      includePaths: require('node-bourbon').includePaths
    }))
