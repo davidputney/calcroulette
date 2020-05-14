@@ -5,6 +5,9 @@ $em-base: 16px !default;
 $black: #444;
 $white: #fff;
 
+$c-primary: #4154CD;
+$c-primary-hover:#7996D5;
+
 $negative: #B22222;
 $negative-dark:darken($negative, 15%);
 $negative-light:lighten($negative, 15%);
@@ -14,12 +17,16 @@ $neutral: #e3cb25;
 $neutral-dark:darken($neutral, 20%);
 $neutral-dark:lighten($neutral, 20%);
 
+$primary-color: $negative;
+
 // grays
-$xxlight:#f5f5f5;
-$xlight:#e4e2e2;
-$light: #d0d0d0;
-$med: #999;
-$dark: #666;
+$c-x-x-light: #F6F6F6;
+$c-x-light: #E6E6E6;
+$c-light: #D0D0D4;
+$c-med: #8c9bab;
+$c-med-dark: lighten($c-med, 10%);
+$c-dark: #494A55;
+
 
 $red: #fc0f1c;
 $red-bg: #720207;

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="13px" viewBox="0 0 16 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon</title>
+    <defs>
+        <path d="M17.3564836,5.49024722 C17.9273081,4.87185401 18.8913596,4.83329195 19.5097528,5.40411645 C20.128146,5.97494095 20.166708,6.93899239 19.5958835,7.55738559 L10.4530308,17.4621428 C9.86600187,18.0980907 8.86781267,18.1180465 8.25583526,17.5060691 L4.44631326,13.6965471 C3.85122891,13.1014628 3.85122891,12.1366404 4.44631326,11.5415561 C5.04139762,10.9464717 6.00621998,10.9464717 6.60130433,11.5415561 L9.28936932,14.2296211 L17.3564836,5.49024722 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none">
+        <g id="Icon/Ok" transform="translate(-4.000000, -5.000000)">
+            <mask id="mask-2">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Icon" fill-rule="nonzero" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

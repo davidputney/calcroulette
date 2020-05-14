@@ -17,6 +17,21 @@
   height:rem(40);
   width:100%;
 }
+.tight {
+  margin-bottom:6px;
+}
+.cozy {
+  margin-bottom:12px;
+}
+.r-tight {
+  margin-right:6px;
+}
+.r-cozy {
+  margin-right:12px;
+}
+.flex {
+  display:flex;
+}
 .flex-centered {
   display:flex;
   flex-direction: row;
@@ -45,3 +60,133 @@ h2 {
     font-size:rem(32);
     padding:rem(32), rem(20), rem(15), rem(0);
 }
+
+
+.main {
+  max-width:rem(1440);
+  margin:auto;
+  border:1px solid red;
+  height:6000px;
+}
+
+
+.btn {
+  padding:8px 18px;
+  border:0;
+  border-radius: 5px;
+  border:1px solid $c-primary;
+  letter-spacing: .05rem;
+  font-size:16px;
+  max-width:140px;
+  display:block;
+  width:100%;
+  &.primary {
+    background-color:$c-primary;
+    color:$white;
+  }
+  &.secondary {
+    background-color:$white;
+    color:$c-primary;
+  }
+  &:disabled {
+    background-color:$c-x-light;
+    color:$c-med;
+    border:1px solid $c-x-light;
+    &:hover {
+      background-color:$c-x-light;
+      color:$c-med;
+      border:1px solid $c-x-light;
+    }
+  }
+  &:hover {
+    background-color:$c-primary-hover;
+    color:$white;
+    border:1px solid $c-primary-hover;
+    transition: background-color .1s, border-color .1s, color .1s;
+  }
+}
+a.btn {
+  height:38px;
+  display:block;
+  text-align: center;
+  cursor: pointer;
+  &.round {
+      display:block;
+      width:60px;
+      height:60px;
+      background-color: $c-med;
+      border-radius:50%;
+      margin:12px;
+      border-width:0px;
+      padding:21px;
+      &.small {
+        width:40px;
+        height:40px;
+        padding:11px;
+      }
+  }
+}
+
+a {
+  &.icn {
+    width:20px;
+    height:20px;
+    display:block;
+    border:1px solid red;
+  }
+}
+
+.toggle[type="radio"] {
+  position: absolute;
+  left:-1000000000px;
+  border:1px solid red;
+    &+label {
+      display:block;
+      width:60px;
+      height:60px;
+      background-color: $c-med;
+      border-radius:50%;
+      margin:12px;
+      padding:21px;
+  }
+  &:checked {
+    &+label {
+      background-color:red;
+    }
+  }
+}
+.icn {
+  fill:$white;
+  width:18px;
+  height:18px;
+}
+
+td.tg-0pky {
+  vertical-align:middle;
+  padding:6px 6px 6px 0;
+}
+thead.fixed {
+  // position:sticky;
+  // top:0px;
+  th.tg-0pky {
+    padding:36px 6px 6px 0;
+    background-color: $white;
+    position:sticky;
+    top:0px;
+  }
+}
+th.fixed {
+  width:120px;
+}
+th.icn-col {
+  width:90px;
+}
+table {
+  position: relative;
+}
+tbody {
+  border-top:2px solid $c-med;
+}
+// thead {
+//   border-bottom:2px solid $c-med;
+// }

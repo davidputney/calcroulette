@@ -1,0 +1,244 @@
+/************************
+****** Typography *******
+**** Version: 0.0.1 *****
+*************************/
+
+/* Table of Content
+==================================================
+	1.0 Variables
+	2.0 Functions
+	3.0 Mixins
+	4.0 Base Styles
+	4.0 Google Web Fonts Implementation
+	5.0 Font Awesome Implementation
+	*/
+/**
+*
+* Type Setting Mixin
+*
+* Let all your relative type size worries wash away with this mixin.
+* This mixin requires a target value, and a line height that will output a
+* font-size in rems as a default. In addition, if a context value is given,
+* the font size will be written in ems instead.
+*
+* Example (using rems):
+*
+* h1 {
+*   @include type-setting(32, 36);
+* }
+*
+* Output:
+*
+* h1 {
+*   font-size: 2rem;
+*   line-height: 1.125;
+* }
+*
+*
+**/
+
+/* Base Styles
+========================= */
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+  @include web-font((Open Sans));
+  color: $black-80;
+  font-weight: $semi-bold;
+  text-rendering: optimizelegibility;
+  line-height:(24 / $basefont);
+
+  a {
+    font-weight: inherit;
+  }
+
+}
+
+h1 {
+  margin-bottom:em(21, $baseh1);
+}
+
+h2 {
+  margin-bottom:em(17, $baseh2);
+}
+
+h3 {
+  margin-bottom:em(19, $baseh3);
+}
+
+h4 {
+  margin-bottom:em(24, $baseh4);
+	 
+}
+
+h5 {
+ margin-bottom:em(20, $baseh5);
+}
+
+h6 {
+ margin-bottom:em(20, $baseh6);
+ text-transform:uppercase;
+}
+
+.subheader {
+  color: #777;
+}
+
+p {
+  margin: 0 0 $vertical-measure; // set bottom margin equal to line-height/vertical measure
+  @include vendorize(word-wrap, break-word);
+  word-break: break-word;
+  @include vendorize(hyphens, auto);
+
+  img {
+    margin-bottom: .375em;
+  }
+
+  &.lead {
+    font-size: em(21);
+    line-height: em(27/$basefont);
+    color: #777;
+  }
+
+  + p.no-indent {
+    text-indent: 0;
+  }
+
+}
+
+ol, 
+ul, 
+dl, 
+address {
+  margin-bottom: em(24, $basefont);
+  font-size: em($basefont);
+  line-height: (24 / $basefont);
+}
+
+small {
+  font-size: em(10);
+}
+
+blockquote {
+
+  &:before, &:after {
+    content: '';
+    content: none;
+  }
+
+}
+
+q {
+  quotes: none;
+
+  &:before, &:after {
+    content: '';
+    content: none;
+  }
+
+}
+
+cite {
+  font-style: normal;
+}
+
+dl, 
+dd {
+  margin-bottom: em(24);
+}
+
+dt {
+  font-weight: $heavy;
+}
+
+.dl-horizontal {
+
+  dt {
+    float: left;
+    clear: left;
+    width: 20.25%;
+    text-align: right;
+  }
+
+  dd {
+    margin-left: 22.78%;
+  }
+
+}
+
+abbr[title] {
+  border-bottom: 1px dotted #c7ced6;
+  cursor: help;
+}
+
+b, 
+strong {
+  font-weight: $heavy;
+}
+
+dfn {
+  font-style: italic;
+}
+
+ins {
+  background-color: #f3f5f6;
+  color: #000;
+  text-decoration: none;
+}
+
+mark {
+  background-color: #f3f5f6;
+  color: $black;
+  font-style: italic;
+  font-weight: bold;
+  padding: 0 .25em;
+}
+
+pre, 
+code, 
+kbd, 
+samp {
+  font-family: Monaco,Courier New,monospace;
+  font-size: em(14);
+  line-height: 1.5;
+}
+
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+sub {
+  position: relative;
+  font-size: em(12);
+  line-height: 0;
+  vertical-align: baselineheight;
+  bottom: -.25em;
+}
+
+sup {
+  position: relative;
+  font-size: em(12);
+  line-height: 0;
+  vertical-align: baselineheight;
+  top: -.5em;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+  color: #333;
+}
+
+del {
+  text-decoration: line-through;
+}

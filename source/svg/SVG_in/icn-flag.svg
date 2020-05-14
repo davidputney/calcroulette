@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="20px" viewBox="0 0 18 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Filled_Icons</title>
+    <g id="Page-1" stroke="none" stroke-width="1">
+        <g id="vote-flag-3" transform="translate(-3.000000, -2.000000)" fill-rule="nonzero">
+            <g id="Filled_Icons" transform="translate(3.000000, 2.000000)">
+                <path d="M17,4.002 L11,4.002 L11,1.002 C11,0.45 10.553,0.002 10,0.002 L1,0.002 C0.447,0.002 0,0.45 0,1.002 L0,20.002 L2,20.002 L2,12.002 L7.586,12.002 L5.293,14.295 C5.007,14.581 4.922,15.011 5.076,15.385 C5.23,15.759 5.596,16.002 6,16.002 L17,16.002 C17.553,16.002 18,15.554 18,15.002 L18,5.002 C18,4.45 17.553,4.002 17,4.002 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

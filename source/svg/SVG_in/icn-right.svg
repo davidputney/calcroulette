@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="18px" viewBox="0 0 16 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Filled_Icons</title>
+    <g id="Page-1" stroke="none" stroke-width="1">
+        <g id="navigation-right-3" transform="translate(-4.000000, -3.000000)">
+            <g id="Filled_Icons" transform="translate(4.000000, 3.000000)">
+                <g id="Group">
+                    <polygon id="Path" points="2 17.415 0.586 16 7.586 9 0.586 2.001 2 0.586 10.414 9"></polygon>
+                    <polygon id="Path" points="7 17.415 5.586 16 12.586 9 5.586 2.001 7 0.586 15.414 9"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

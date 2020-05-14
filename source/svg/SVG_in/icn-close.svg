@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Close Modal</title>
+    <g id="close" stroke="none" stroke-width="1">
+        <g id="Artboard" transform="translate(0.000000, -400.000000)">
+            <g id="Close/Large/Normal" transform="translate(0.000000, 400.000000)">
+                <g id="Filled_Icons">
+                    <polygon id="Shape" points="17.707 1.707 16.293 0.293 9 7.586 1.707 0.293 0.293 1.707 7.586 9 0.293 16.293 1.707 17.707 9 10.414 16.293 17.707 17.707 16.293 10.414 9"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
