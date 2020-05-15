@@ -35,6 +35,18 @@
 .r-cozy {
   margin-right:12px;
 }
+.r-loose {
+  margin-right:24px;
+}
+.r-wide {
+  margin-right:48px;
+}
+.l-loose {
+  margin-left:24px;
+}
+.l-wide {
+  margin-left:48px;
+}
 .flex {
   display:flex;
   &.space-between {
@@ -135,7 +147,7 @@ a.btn {
       height:60px;
       background-color: $c-med;
       border-radius:50%;
-      margin:12px;
+      margin:0 12px 12px;
       border-width:0px;
       padding:21px;
       &.small {
@@ -165,7 +177,7 @@ a {
       height:60px;
       background-color: $c-med;
       border-radius:50%;
-      margin:12px;
+      margin:0 12px 12px;
       padding:21px;
   }
   &:checked {
@@ -273,4 +285,31 @@ p, nav {
 
 .page-controls {
   border:1px solid green;
+  height:calc(15vh-48px);
+}
+
+.notes-field {
+  max-width:400px;
+  width:100%;
+  border:1px solid red;
+  padding:12px 0;
+  input {
+    width:100%;
+    height:60px;
+  }
+}
+
+#the-canvas {
+  border: 1px solid yellow;
+  direction: ltr;
+}
+
+.center {
+  text-align: center;
+}
+.white {
+  color:$white;
+}
+.bold {
+  font-weight:700;
 }
