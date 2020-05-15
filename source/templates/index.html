@@ -2,7 +2,7 @@
 <!doctype html>
 <html class="no-js" lang="">
     @@include('../html_partials/common/head.html')
-    <body>
+    <body class="body">
       @@include('../html_partials/common/svg_sprite_embed.html')
  
         @@include('../html_partials/common/header.html')
@@ -10,59 +10,12 @@
         <main class="main">
  
         <!-- Add your site or application content here -->
-        <!-- @@include('../html_partials/audit_view/audit-view.html') -->
+        @@include('../html_partials/audit_view/audit-view.html')
  
-        <!-- @@include('../html_partials/reports_view/reports_view.html')  -->
+        @@include('../html_partials/reports_view/reports_view.html') 
 
         @@include('../html_partials/single_view/single_view.html')    
-
-
-        <!--  
-
-
-      <div class="flex">
-        <input type="radio" class="toggle" id="approve-toggle" name="audit-controls" value="approve">
-        <label for="approve-toggle"><span class="hidden">Approve</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="icn">
-            <use href="#icn-check"/> 
-          </svg>
-          <span class="hidden">Flag</span>  
-        </label>
-      
-
-        <input type="radio" id="flag-toggle" class="toggle" name="audit-controls" value="flag">
-        <label for="flag-toggle">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icn">
-            <use href="#icn-flag"/> 
-          </svg>
-          <span class="hidden">Flag</span>
-        </label>
-      </div>
-
-      <a href="" class="btn round">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icn">
-          <use href="#icn-left"/> 
-        </svg>
-      </a>
-
-      <a href="" class="btn round">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icn">
-          <use href="#icn-right"/> 
-        </svg>   
-      </a>    
-
-      <a href="" class="btn round small">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icn">
-          <use href="#icn-download"/> 
-        </svg>
-      </a>
-
-      <a href="" class="btn round small">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icn">
-          <use href="#icn-close"/> 
-        </svg>  
-      </a> -->
-
+   
           </main>
     </body>
     @@include('../html_partials/common/js_links.html')
@@ -74,4 +27,4 @@
     })();
     </script> 
 
-</html>
+</html>      
