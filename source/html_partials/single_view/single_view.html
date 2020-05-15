@@ -5,79 +5,8 @@
               <use href="#icn-close"/> 
             </svg>
           </a>
-
-
-   <p class="center white bold">1 of 50</p>
-
-     <div class="viewer-container">
-            <div class="page-container flex center">
-
-            <div class="page-viewer">
-
-                <object data="http://localhost:8000/pdfjs/web/viewer.html?file=http://localhost:8000/pdf/testfile.pdf" type="application/pdf" width="100%" height="100%">
-                    <p><a href="http://localhost:8000/pdfjs/web/viewer.html?file=http://localhost:8000/pdf/testfile.pdf">http://localhost:8000/pdfjs/web/viewer.html?file=http://localhost:8000/pdf/testfile.pdf</a></p>
-                </object>
-
-
-            </div>
-
-            <div class="page-viewer">
-
-                <object data="http://localhost:8000/pdfjs/web/viewer.html?file=http://localhost:8000/pdf/testfile.pdf" type="application/pdf" width="100%" height="100%">
-                    <p><a href="http://localhost:8000/pdfjs/web/viewer.html?file=http://localhost:8000/pdf/testfile.pdf">http://localhost:8000/pdfjs/web/viewer.html?file=http://localhost:8000/pdf/testfile.pdf</a></p>
-                </object>
-                
-            </div>
-        </div>
-    </div>
-
-        <div class="page-controls flex center">
-            
-            <div class="notes-field r-wide">
-                <textarea rows="3" cols="50" placeholder="Add a note"></textarea>
-            </div>
-
-
-            <div class="flex vert-center l-wide r-wide">
-                <input type="radio" class="toggle" id="approve-toggle" name="audit-controls" value="approve">
-                <label for="approve-toggle"><span class="hidden">Approve</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icn">
-                    <use href="#icn-check"/> 
-                  </svg>
-                  <span class="hidden">Flag</span>
-                </label>
-              
-        
-                <input type="radio" id="flag-toggle" class="toggle" name="audit-controls" value="flag">
-                <label for="flag-toggle">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icn">
-                    <use href="#icn-flag"/> 
-                  </svg>
-                  <span class="hidden">Flag</span>
-                </label>
-              </div>
-
-
-              <div class="flex vert-center r-wide l-wide">
-                <a href="" class="btn round">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icn">
-                      <use href="#icn-left"/> 
-                    </svg>
-                  </a>
-            
-                  <a href="" class="btn round">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icn">
-                      <use href="#icn-right"/> 
-                    </svg>
-                  </a>
-              </div>
-
-
-
-
-
-     </div>   
-
-      
+            @@include('modules/single_view_header.html')   
+            @@include('modules/single_view_pages_container.html')  
+            @@include('modules/single_view_controls.html')    
     </div>
 </div>
