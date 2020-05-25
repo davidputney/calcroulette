@@ -1,0 +1,30 @@
+td.tg-0pky {
+    vertical-align:middle;
+    padding:6px 6px 6px 0;
+  }
+  thead.fixed {
+    th.tg-0pky {
+      padding:36px 6px 6px 0;
+      background-color: $white;
+      position:sticky;
+      top:0px;
+    }
+  }
+  th.fixed {
+    width:120px;
+  }
+  th.icn-col {
+    width:120px;
+  }
+  table {
+    position: relative;
+  }
+  tbody {
+    border-top:2px solid $c-med;
+  }
+
+  th, td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

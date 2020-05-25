@@ -1,0 +1,82 @@
+.backdrop {
+    width:0px;
+    height:0px;
+    overflow: hidden;
+    position:absolute;
+    right:-10000000000px;
+    &.active {
+      width:100vw;
+      height:100vh;
+      position: fixed;
+      top:0;
+      left:0;
+      background-color: rgba($black, .8);
+    }
+  }
+$tools-height:100px;
+  .modal {
+    width:100vw;
+    height:100vh;
+    padding-top: 12px;
+    display:grid;
+    grid-template-columns: auto 1400px auto;
+    grid-template-rows: 24px $tools-height calc(900px - 140px) 24px;
+    grid-template-areas:
+      "... header ..."
+      "... tools ..."
+      "... viewer ..."
+      "footer footer footer";
+    @media screen and (min-height: 850px) {
+      grid-template-rows: max-content max-content calc(100vh - 140px) 24px;
+      grid-template-columns: auto calc((100vh - 140px)*1.5454) auto;
+    }
+  }
+  .header-single {
+    grid-area: header;
+    height:24px;
+  }
+  .viewer-container {
+    grid-area: viewer;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+    "left right";
+  }
+  .page-viewer {
+    &.left {
+      grid-area:left;
+    }
+    &.right {
+      grid-area: right;
+    }
+  }
+  .close-button {
+    position: absolute;
+    right:12px;
+    top:12px;
+  }
+  .page-controls {
+    grid-area: tools;
+  }
+  .notes-field {
+    padding:6px 0;
+    height:48px;
+    width:350px;
+    position: relative;
+    textarea {
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      margin:0;
+      height:48px;
+      box-shadow:0 0 0 0 $c-dark;
+      &:focus, &:active {
+        width:500px;
+        height:96px;
+        transition: height .2s cubic-bezier(.52,.43,.32,1.21), width .2s cubic-bezier(.52,.43,.32,1.21), box-shadow .3s;
+        box-shadow:0 0 0 6px rgba($c-med, .5);
+      }
+    }
+  }

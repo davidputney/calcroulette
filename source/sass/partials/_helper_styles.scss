@@ -1,0 +1,37 @@
+.flex {
+    display:flex;
+    &.space-between {
+      justify-content: space-between;
+    }
+    &.vert-center {
+      align-items: center;
+    }
+    &.bottom {
+      align-items: flex-end;
+    }
+    &.center {
+      justify-content: center;
+    }
+    &.end {
+      justify-content: flex-end;
+    }
+  }
+  .flex-centered {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .centered-object {
+    margin:0 auto;
+    display:block
+  }
+  .hidden {
+    width:0;
+    height:0;
+    overflow:hidden;
+    position: absolute;
+    left:-1000000px;
+  }
+  .align-self {
+    align-self: flex-end;
+  }

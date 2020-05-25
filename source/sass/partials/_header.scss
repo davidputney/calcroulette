@@ -1,0 +1,36 @@
+.header {
+    background-color:$c-x-x-light;
+    grid-area: header;
+    display:grid;
+    grid-template-columns: auto minmax(1100px, 1600px) auto;
+    grid-template-areas: "... content ...";
+    .inside {
+      margin:0 auto;
+      width:100%;
+      padding:6px 12px;
+      grid-area: content;
+      @media screen and (min-width: 1624px) {
+        padding:6px 0;
+      }
+      h1 {
+        margin:0;
+      }
+      figure {
+        margin:0 18px 0 0;
+        padding:0px;
+        width:149px;
+        height:33px;
+        // margin-right:24px;
+      }
+      .logo-container {
+        width:700px;
+        height:60px;
+      }
+      .header-logo {
+        height:33px;
+        width:149px;
+        // margin-top:6px;
+        // border:1px solid red;
+      }
+    }
+  }
