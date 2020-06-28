@@ -1,0 +1,12 @@
+{
+  "name": "calcroulette",
+  "displayName": "calcroulette",
+  "expo": {
+    "name": "calcroulette",
+    "slug": "calcroulette",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
