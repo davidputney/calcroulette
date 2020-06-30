@@ -3,6 +3,13 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, Button, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback } from 'react-native';
 
 
+const buttonArray = [1,2,3,4,5,6,7,8,9,0];
+const operators = [{value: "minus", display: "-"},
+  {value: "add", display: "+" },
+  {value: "multiply", display: "x" },
+  {value: "divide", display: "÷" },
+  {value: "equals", display: "=" }
+]
 const TextFoo=({ textVal }) => {
   return (
       <Text>{`${textVal}`}</Text>
@@ -29,11 +36,16 @@ const ButtonFoo=() => {
     )
   }
 
- const TouchFoo=({ touch, buttonText, buttonStyle }) => {
+ const TouchFoo=({ touch, buttonText, buttonStyle, val }) => {
+  const clicky=(e) => {
+    touch(e, val)
+  }
   return (
     <TouchableHighlight 
-      onPress={touch}
+      style={styles.touchable}
+      onPress={clicky}
       underlayColor="white"
+      // value={ val }
     >
       <View style={buttonStyle}>
         <Text style={styles.buttonText}>{`${buttonText}`}</Text>
@@ -44,17 +56,19 @@ const ButtonFoo=() => {
 
   
 export default class HelloWorldApp extends Component {
-
   constructor(props) {
     super(props)
-    this.state = { textVal: "Hello world var yyy" }
+    this.state = { textVal: "Hello world var yyy", numberButtons: buttonArray }
     this._onPressButton = this._onPressButton.bind(this)
   }  
 
 
-  _onPressButton() {
-    alert('You tapped the button!')
+  _onPressButton(e, val) {
+    // alert('You tapped the button!')
+    console.log(val)
   }
+
+  // const _onPressButton=e => touch(e)
 
   _onLongPressButton() {
     alert('You long-pressed the button!')
@@ -63,18 +77,37 @@ export default class HelloWorldApp extends Component {
 
   render() {
     return ( 
-      <View style={styles.container}>
-        <TouchFoo 
+      <View 
+        style={styles.keyboardWrapper }
+      >
+      <View style={styles.container}>    
+      { buttonArray.map((el, i) => {
+        return (
+          <TouchFoo 
           touch = { this._onPressButton} 
-          buttonText = { "Button Text" } 
+          buttonText = { el } 
           buttonStyle = { styles.button }
-        />
-        <TouchFoo 
+          val={ el }
+          key = { i }
+        />     
+        )
+      }) }
+  
+      { operators.map((el, i) => {
+        console.log(el)
+        const { value, display } = el;
+        return (
+          <TouchFoo 
           touch = { this._onPressButton} 
-          buttonText = { "Button Text Too" } 
-          buttonStyle = { styles.buttonAlt }
-        />
-      </View>
+          buttonText = { display } 
+          buttonStyle = { styles.buttonOperator }
+          val={ value }
+          key = { i }
+        />     
+        )
+      }) }
+    </View>
+    </View>
     );
   }
 }
@@ -83,10 +116,14 @@ export default class HelloWorldApp extends Component {
 const styles = StyleSheet.create({
   container: {
    flex: 1,
+   flexDirection: 'row',
+   flexWrap: "wrap",
    justifyContent: 'center',
-   backgroundColor: "#d0d0d0",
    paddingTop: 60,
-   alignItems: 'center'
+   alignItems: 'center',
+   borderWidth: 2,
+   borderColor: "#222222",
+   width:"100%"
   },
   buttonContainer: {
     margin: 20
@@ -96,11 +133,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
+  touchable: {
+    width: "33.3333%",
+    aspectRatio: 1
+  },
   button: {
-    width: 260,
+    width: "auto",
+    aspectRatio:1,
     alignItems: 'center',
+    justifyContent:"center",
     backgroundColor: '#2196F3',
-    borderRadius:3
+  },
+  buttonOperator: {
+    justifyContent:"center",
+    width: "auto",
+    aspectRatio:1,
+    alignItems: 'center',
+    backgroundColor: '#FFA500'
   },
   buttonAlt: {
     width: 260,
@@ -111,6 +160,27 @@ const styles = StyleSheet.create({
   buttonText: {
     textAlign: 'center',
     padding: 20,
-    color: 'white'
-  }
+    color: 'white',
+    fontSize: 48,
+    fontWeight: "bold"
+  },
+  keyboardWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    borderWidth: 2,
+    borderColor: "#FFDD00",
+    height:"100%",
+    width: "100%"
+  },
+  container: {
+    display:"flex",
+    flexDirection: 'row',
+    flexWrap: "wrap",
+    justifyContent: 'center',
+    paddingTop: 60,
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: "#222222",
+    width:"100%",
+   },
 });
