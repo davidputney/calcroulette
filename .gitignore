@@ -61,3 +61,5 @@ buck-out/
 # Expo
 .expo/*
 web-build/
+assets/fonts/ginger-bold.ttf
+assets/fonts/open-sans-regular.ttf
