@@ -1,6 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Button, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback } from 'react-native';
+import { Text, View, Image, Button, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, devMenu } from 'react-native';
+
+import { useFonts } from '@use-expo/font';
+import { AppLoading } from 'expo';
+
+import * as Font from 'expo-font';
+
+
+// styles
+import { styles } from "./styles/styles";
+
+// components
+import { AppContainer } from "./components/appContainer";
+
+
+const customFonts = {
+  'Ginger': require('./assets/fonts/ginger-bold.ttf')
+};
 
 
 const buttonArray = [1,2,3,4,5,6,7,8,9,0];
@@ -58,129 +75,39 @@ const ButtonFoo=() => {
 export default class HelloWorldApp extends Component {
   constructor(props) {
     super(props)
-    this.state = { textVal: "Hello world var yyy", numberButtons: buttonArray }
+    this.state = { textVal: "Hello world var yyy", numberButtons: buttonArray,  fontsLoaded: false, }
     this._onPressButton = this._onPressButton.bind(this)
   }  
 
+  async _loadFontsAsync() {
+    await Font.loadAsync(customFonts);
+    this.setState({ fontsLoaded: true })
+  }
+
+  componentDidMount() {
+    this._loadFontsAsync();
+  }
 
   _onPressButton(e, val) {
     // alert('You tapped the button!')
     console.log(val)
+    console.log(this.state.fontsLoaded)
   }
-
-  // const _onPressButton=e => touch(e)
 
   _onLongPressButton() {
     alert('You long-pressed the button!')
   }
-
-
+  
   render() {
     return ( 
-      <View 
-        style={styles.keyboardWrapper }
-      >
-      <View style={styles.container}>    
-      { buttonArray.map((el, i) => {
-        return (
-          <TouchFoo 
-          touch = { this._onPressButton} 
-          buttonText = { el } 
-          buttonStyle = { styles.button }
-          val={ el }
-          key = { i }
-        />     
-        )
-      }) }
-  
-      { operators.map((el, i) => {
-        console.log(el)
-        const { value, display } = el;
-        return (
-          <TouchFoo 
-          touch = { this._onPressButton} 
-          buttonText = { display } 
-          buttonStyle = { styles.buttonOperator }
-          val={ value }
-          key = { i }
-        />     
-        )
-      }) }
-    </View>
-    </View>
+    <AppContainer 
+      isLoaded = { this.state.fontsLoaded }
+      f = { this._onPressButton } 
+      buttonStyle = { styles.button }
+    />
+   
     );
   }
 }
 
 
-const styles = StyleSheet.create({
-  container: {
-   flex: 1,
-   flexDirection: 'row',
-   flexWrap: "wrap",
-   justifyContent: 'center',
-   paddingTop: 60,
-   alignItems: 'center',
-   borderWidth: 2,
-   borderColor: "#222222",
-   width:"100%"
-  },
-  buttonContainer: {
-    margin: 20
-  },
-  alternativeLayoutButtonContainer: {
-    margin: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  touchable: {
-    width: "33.3333%",
-    aspectRatio: 1
-  },
-  button: {
-    width: "auto",
-    aspectRatio:1,
-    alignItems: 'center',
-    justifyContent:"center",
-    backgroundColor: '#2196F3',
-  },
-  buttonOperator: {
-    justifyContent:"center",
-    width: "auto",
-    aspectRatio:1,
-    alignItems: 'center',
-    backgroundColor: '#FFA500'
-  },
-  buttonAlt: {
-    width: 260,
-    alignItems: 'center',
-    backgroundColor: '#FFA500',
-    borderRadius:3
-  },
-  buttonText: {
-    textAlign: 'center',
-    padding: 20,
-    color: 'white',
-    fontSize: 48,
-    fontWeight: "bold"
-  },
-  keyboardWrapper: {
-    display: "flex",
-    flexDirection: "column",
-    borderWidth: 2,
-    borderColor: "#FFDD00",
-    height:"100%",
-    width: "100%"
-  },
-  container: {
-    display:"flex",
-    flexDirection: 'row',
-    flexWrap: "wrap",
-    justifyContent: 'center',
-    paddingTop: 60,
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: "#222222",
-    width:"100%",
-   },
-});
