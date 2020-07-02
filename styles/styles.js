@@ -2,23 +2,15 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-     flex: 1,
-     flexDirection: 'row',
-     flexWrap: "wrap",
-     justifyContent: 'center',
-     paddingTop: 60,
-     alignItems: 'center',
-     borderWidth: 2,
-     borderColor: "#222222",
-     width:"100%"
-    },
-    buttonContainer: {
-      margin: 20
-    },
-    alternativeLayoutButtonContainer: {
-      margin: 20,
+      display:"flex",
       flexDirection: 'row',
-      justifyContent: 'space-between'
+      flexWrap: "wrap",
+      justifyContent: 'center',
+      paddingTop: 60,
+      alignItems: 'center',
+      borderWidth: 2,
+      borderColor: "#222222",
+      width:"100%",
     },
     touchable: {
       width: "33.3333%",
@@ -30,7 +22,6 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent:"center",
       backgroundColor: '#2196F3',
-      fontFamily: 'Ginger'
     },
     buttonOperator: {
       justifyContent:"center",
@@ -38,20 +29,14 @@ const styles = StyleSheet.create({
       aspectRatio:1,
       alignItems: 'center',
       backgroundColor: '#FFA500',
-      fontFamily: 'Ginger'
-    },
-    buttonAlt: {
-      width: 260,
-      alignItems: 'center',
-      backgroundColor: '#FFA500',
-      borderRadius:3
     },
     buttonText: {
       textAlign: 'center',
       padding: 20,
       color: 'white',
       fontSize: 48,
-      fontWeight: "bold"
+      fontWeight: "bold",
+      fontFamily: 'Ginger'
     },
     keyboardWrapper: {
       display: "flex",
@@ -61,17 +46,6 @@ const styles = StyleSheet.create({
       height:"100%",
       width: "100%"
     },
-    container: {
-      display:"flex",
-      flexDirection: 'row',
-      flexWrap: "wrap",
-      justifyContent: 'center',
-      paddingTop: 60,
-      alignItems: 'center',
-      borderWidth: 2,
-      borderColor: "#222222",
-      width:"100%",
-     },
   });
   
 

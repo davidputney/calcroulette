@@ -14,19 +14,6 @@ const customFonts = {
 const buttonArray = [1,2,3,4,5,6,7,8,9,0]; 
 
 
-// const AppContainer = ({ isLoaded = false, f, buttonStyle }) => {
-//     if (!isLoaded) {
-//         return <AppLoading />;
-//     } 
-//     return (
-//         <View
-//             style={styles.container}
-//         >
-//             <Text>sdsdfd</Text>
-//         </View>
-//     );
-// }
-
 const AppContainer = ({ isLoaded = false, f, buttonStyle }) => {
     if (!isLoaded) {
         return <AppLoading />;
@@ -34,8 +21,19 @@ const AppContainer = ({ isLoaded = false, f, buttonStyle }) => {
     return (
         <View
             style={styles.container}
-        >
-            <Text>sdsdfd</Text>
+        > 
+            { [1,2,3,4,5,6,7,8,9,0,"."].map((el, i) => {
+                return (
+                <CalcButton 
+                    f = { f } 
+                    buttonText = { el } 
+                    buttonStyle = { buttonStyle }
+                    val={ el }
+                    key = { i }
+                />     
+                )
+            }) }
+
         </View>
     );
 }
