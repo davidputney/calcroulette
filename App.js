@@ -75,7 +75,7 @@ const ButtonFoo=() => {
 export default class HelloWorldApp extends Component {
   constructor(props) {
     super(props)
-    this.state = { textVal: "Hello world var yyy", numberButtons: buttonArray,  fontsLoaded: false, }
+    this.state = { textVal: "Hello world var yyy", numberButtons: buttonArray,  fontsLoaded: false, val: 0 }
     this._onPressButton = this._onPressButton.bind(this)
   }  
 
@@ -92,6 +92,7 @@ export default class HelloWorldApp extends Component {
     // alert('You tapped the button!')
     console.log(val)
     console.log(this.state.fontsLoaded)
+    this.setState({ val: val })
   }
 
   _onLongPressButton() {
@@ -103,7 +104,8 @@ export default class HelloWorldApp extends Component {
     <AppContainer 
       isLoaded = { this.state.fontsLoaded }
       f = { this._onPressButton } 
-      buttonStyle = { styles.button }
+      // buttonStyle = { styles.button }
+      windowVal = { this.state.val }
     />
    
     );

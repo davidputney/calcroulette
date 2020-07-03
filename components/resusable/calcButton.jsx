@@ -2,19 +2,19 @@ import React from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
 import { styles } from "../../styles/styles";
 
- const CalcButton=({ f, buttonText, buttonStyle = styles.button, val }) => {
+ const CalcButton=({ f, buttonText, textStyle=styles.buttonText, buttonStyle = styles.button, touchable = styles.touchable, val }) => {
     const clicky=(e) => {
       f(e, val)
     }
     return (
       <TouchableHighlight 
-        style={styles.touchable}
+        style={touchable}
         onPress={clicky}
-        underlayColor="white"
+        underlayColor="#d0d0d0"
       >
         <View style={buttonStyle}>
           <Text 
-            style={styles.buttonText}
+            style={textStyle}
           >{`${buttonText}`}</Text>
         </View>
       </TouchableHighlight>
