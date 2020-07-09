@@ -7,12 +7,16 @@ import { AppLoading } from 'expo';
 
 import * as Font from 'expo-font';
 
+import Svg, { Circle, Path, G } from "react-native-svg"
+
 
 // styles
 import { styles } from "./styles/styles";
+import { buttons } from "./styles/buttons";
 
 // components
 import { AppContainer } from "./components/appContainer";
+import { ClearButton } from "./components/resusable/clearButton";
 
 
 const customFonts = {
@@ -71,12 +75,25 @@ const ButtonFoo=() => {
   )
  } 
 
+
+//  const doAdd = (val1, val2) => (val1+val2)
+//  const doSub = (val1, val2 = 0) => (val1 - val2)
+//  const doMulti = (val1, val2 = 1) => (val1 * val2)
+//  const doDiv = (val1, val2 = 1) => (val1 / val2)
+
+ const doMath = (val1, val2, op) => {
+   console.log("operator", op)
+   return op === "+"? (val1+val2): op === "-"? (val1-val2): op === "/"? (val1/val2): op === "x"? (val1*val2): "error";
+ }
   
 export default class HelloWorldApp extends Component {
   constructor(props) {
     super(props)
-    this.state = { textVal: "Hello world var yyy", numberButtons: buttonArray,  fontsLoaded: false, val: 0 }
+    this.state = { fontsLoaded: false, currentVal: [], retainedVal: 0, operator: undefined, runningVal: 0, displayVal: 0 }
     this._onPressButton = this._onPressButton.bind(this)
+    this._handleOperator = this._handleOperator.bind(this)
+    this._handleClear = this._handleClear.bind(this)
+    this._handleEquals = this._handleEquals.bind(this)
   }  
 
   async _loadFontsAsync() {
@@ -88,11 +105,29 @@ export default class HelloWorldApp extends Component {
     this._loadFontsAsync();
   }
 
-  _onPressButton(e, val) {
-    // alert('You tapped the button!')
-    console.log(val)
-    console.log(this.state.fontsLoaded)
-    this.setState({ val: val })
+  _handleClear(e, val) {
+    this.setState({ currentVal: [], retainedVal: 0, operator: undefined, runningVal: 0, displayVal: 0 })
+  }
+
+  _handleOperator(e, val) {
+    const {currentVal, runningVal, operator} = this.state
+    const sum = !operator ? currentVal.join(""): doMath(Number(runningVal), Number(currentVal.join("")), operator)
+    // const op = val === "="? operator: val;
+    // console.log("op", op)
+    this.setState({ runningVal:sum, operator: val, displayVal: sum, currentVal: [] })
+  }
+
+  _handleEquals(e, val) {
+    const {currentVal, runningVal, operator} = this.state
+    const sum = !operator ? currentVal.join(""): doMath(Number(runningVal), Number(currentVal.join("")), operator)
+    this.setState({ runningVal:sum, operator: undefined, displayVal: sum, currentVal: Array.from(String(sum), Number) })
+  }
+
+  _onPressButton(e, v) {   
+    const {currentVal} = this.state
+    const decimal = currentVal.some((el) => el === ".")
+    const r = decimal && v === "."?currentVal : [...currentVal, v]
+    this.setState({ currentVal: r, displayVal: r.join("") })
   }
 
   _onLongPressButton() {
@@ -100,14 +135,19 @@ export default class HelloWorldApp extends Component {
   }
   
   render() {
+    console.log(this.state)
     return ( 
+    <View>
+      <ClearButton />
     <AppContainer 
       isLoaded = { this.state.fontsLoaded }
       f = { this._onPressButton } 
-      // buttonStyle = { styles.button }
-      windowVal = { this.state.val }
+      fOp = { this._handleOperator }
+      fEql = { this._handleEquals }
+      fClear = { this._handleClear }
+      windowVal = { this.state.displayVal }
     />
-   
+   </View>
     );
   }
 } 
