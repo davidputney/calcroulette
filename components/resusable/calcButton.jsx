@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
 import { styles } from "../../styles/styles";
+import { buttons } from "../../styles/buttons";
 
- const CalcButton=({ f, buttonText, textStyle=styles.buttonText, buttonStyle = styles.button, touchable = styles.touchable, val }) => {
+ const CalcButton=({ f, buttonText, textStyle=styles.buttonText, buttonStyle = buttons.button, touchable = buttons.touchable, val }) => {
     const clicky=(e) => {
       f(e, val)
     }

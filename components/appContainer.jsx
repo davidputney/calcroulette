@@ -3,7 +3,9 @@ import { View, Text } from 'react-native';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
 import { styles } from "../styles/styles";
+import { buttons } from "../styles/buttons";
 import { CalcButton } from './resusable/calcButton';
+import { ClearButton } from './resusable/clearButton';
 
 // import { CalcButton } from "reusable/calcButton";
 
@@ -14,7 +16,7 @@ const customFonts = {
 const buttonArray = [1,2,3,4,5,6,7,8,9,0]; 
 
 
-const AppContainer = ({ isLoaded = false, f, buttonStyle, windowVal }) => {
+const AppContainer = ({ isLoaded = false, f, fOp, fClear, fEql, buttonStyle, windowVal }) => {
     if (!isLoaded) {
         return <AppLoading />;
     } 
@@ -23,7 +25,15 @@ const AppContainer = ({ isLoaded = false, f, buttonStyle, windowVal }) => {
         <View style={styles.valueDisplay}>
             <Text
                 style={styles.valueText}
+            // >{`${windowVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</Text>
             >{`${windowVal}`}</Text>
+
+            <ClearButton 
+                f = { fClear } 
+                touchable = { buttons.clearButton }
+                val={ "clear" }
+                fill={ "#d0d0d0" }
+            />     
         </View>
 
         <View style={styles.keyboardContainer}>
@@ -47,11 +57,11 @@ const AppContainer = ({ isLoaded = false, f, buttonStyle, windowVal }) => {
                 { ["+","-","x","/"].map((el, i) => {
                         return (
                         <CalcButton 
-                            f = { f } 
+                            f = { fOp } 
                             buttonText = { el } 
                             textStyle = {  styles.buttonOperatorText }
-                            touchable = { styles.touchableWide }
-                            buttonStyle = { styles.buttonOperator }
+                            touchable = { buttons.touchableWide }
+                            buttonStyle = { buttons.buttonOperator }
                             val={ el }
                             key = { i }
                         />     
@@ -60,11 +70,11 @@ const AppContainer = ({ isLoaded = false, f, buttonStyle, windowVal }) => {
                 </View>    
         </View>
         <CalcButton 
-                    f = { f } 
+                    f = { fEql } 
                     buttonText = { "I feel lucky" } 
                     textStyle = {  styles.buttonTextSmall }
-                    buttonStyle = { styles.buttonWide }
-                    touchable = { styles.touchableWideToo }
+                    buttonStyle = { buttons.buttonWide }
+                    touchable = { buttons.touchableWideToo }
                     val={ "=" }
                 /> 
         </View>
