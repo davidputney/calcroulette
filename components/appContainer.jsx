@@ -16,7 +16,7 @@ const customFonts = {
 const buttonArray = [1,2,3,4,5,6,7,8,9,0]; 
 
 
-const AppContainer = ({ isLoaded = false, f, fOp, fClear, fEql, buttonStyle, windowVal }) => {
+const AppContainer = ({ isLoaded = false, f, fOp, fClear, fEql, buttonStyle, windowVal, active = false, eqlActive = false }) => {
     if (!isLoaded) {
         return <AppLoading />;
     } 
@@ -24,7 +24,7 @@ const AppContainer = ({ isLoaded = false, f, fOp, fClear, fEql, buttonStyle, win
         <View style={styles.appContainer}>
         <View style={styles.valueDisplay}>
             <Text
-                style={styles.valueText}
+                style={active?styles.valueText:styles.valueTextInactive}
             // >{`${windowVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</Text>
             >{`${windowVal}`}</Text>
 
@@ -32,7 +32,7 @@ const AppContainer = ({ isLoaded = false, f, fOp, fClear, fEql, buttonStyle, win
                 f = { fClear } 
                 touchable = { buttons.clearButton }
                 val={ "clear" }
-                fill={ "#d0d0d0" }
+                fill={ active?"#666666":"#c0c0c0" }
             />     
         </View>
 
@@ -54,7 +54,7 @@ const AppContainer = ({ isLoaded = false, f, fOp, fClear, fEql, buttonStyle, win
                 </View>
                 
                 <View style={styles.keyboardRight}>
-                { ["+","-","x","/"].map((el, i) => {
+                { ["+","-","x","÷"].map((el, i) => {
                         return (
                         <CalcButton 
                             f = { fOp } 
@@ -73,8 +73,9 @@ const AppContainer = ({ isLoaded = false, f, fOp, fClear, fEql, buttonStyle, win
                     f = { fEql } 
                     buttonText = { "I feel lucky" } 
                     textStyle = {  styles.buttonTextSmall }
-                    buttonStyle = { buttons.buttonWide }
+                    buttonStyle = { eqlActive?buttons.buttonWide: buttons.buttonWideInactive }
                     touchable = { buttons.touchableWideToo }
+                    active = { eqlActive}
                     val={ "=" }
                 /> 
         </View>
