@@ -74,6 +74,12 @@ const styles = StyleSheet.create({
       fontWeight:"bold",
       fontFamily: "Ginger",
     },
+    valueTextInactive: {
+      fontSize: 48,
+      color: "#c0c0c0",
+      fontWeight:"bold",
+      fontFamily: "Ginger",
+    },
     keyboardWrapper: {
       display: "flex",
       flexDirection: "column",
