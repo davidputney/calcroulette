@@ -39,6 +39,15 @@ const buttons = StyleSheet.create({
       borderRadius:4,
       marginTop: 12,
     },
+    buttonWideInactive: {
+      justifyContent:"center",
+      width: "100%",
+      alignItems: 'center',
+      backgroundColor: '#d0d0d0',
+      height: "100%",
+      borderRadius:4,
+      marginTop: 12,
+    },
     clearButton: {
       width:20,
       height:20,
