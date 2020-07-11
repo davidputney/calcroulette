@@ -11,10 +11,12 @@ const buttons = StyleSheet.create({
       borderRadius: 150,
     },
     touchableWideToo: {
-      width: "100%",
+      width: "94%",
       aspectRatio: 5,
-      paddingLeft:12,
-      paddingRight:12,
+      marginLeft:"3%",
+      marginRight:"3%",
+      // height: "100%",
+      marginTop: 12,
     },
     button: {
       width: "auto",
@@ -37,7 +39,7 @@ const buttons = StyleSheet.create({
       backgroundColor: '#D2691E',
       height: "100%",
       borderRadius:4,
-      marginTop: 12,
+      // marginTop: 12,
     },
     buttonWideInactive: {
       justifyContent:"center",
@@ -46,7 +48,7 @@ const buttons = StyleSheet.create({
       backgroundColor: '#d0d0d0',
       height: "100%",
       borderRadius:4,
-      marginTop: 12,
+      // marginTop: 12,
     },
     clearButton: {
       width:20,
