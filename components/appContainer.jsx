@@ -7,6 +7,10 @@ import { buttons } from "../styles/buttons";
 import { CalcButton } from './resusable/calcButton';
 import { ClearButton } from './resusable/clearButton';
 
+import { buttonArray, operators } from '../imports/button-values'
+import { customFonts } from '../imports/fonts'
+
+
 // import { CalcButton } from "reusable/calcButton";
 
 // const customFonts = {

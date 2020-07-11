@@ -2,76 +2,25 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { Text, View, Image, Button, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, devMenu } from 'react-native';
 
+// custom fonts
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
-
 import * as Font from 'expo-font';
 
+//  js imports
 import { customFonts } from './imports/fonts'
+import { buttonArray, operators } from './imports/button-values'
+import { helpers } from './imports/helper-functions'
+
+// svg handlers
 import Svg, { Circle, Path, G } from "react-native-svg"
 
 
 // styles
 import { styles } from "./styles/styles";
-import { buttons } from "./styles/buttons";
 
 // components
 import { AppContainer } from "./components/appContainer";
-import { ClearButton } from "./components/resusable/clearButton";
-
-
-
-
-const buttonArray = [1,2,3,4,5,6,7,8,9,0];
-const operators = [{value: "minus", display: "-"},
-  {value: "add", display: "+" },
-  {value: "multiply", display: "x" },
-  {value: "divide", display: "÷" },
-  {value: "equals", display: "=" }
-]
-const TextFoo=({ textVal }) => {
-  return (
-      <Text>{`${textVal}`}</Text>
-  )
-}
-
-const ViewFoo=({ textVal }) => {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <TextFoo textVal = { textVal } />
-    </View>  
-  )
-}
-
-const ButtonFoo=() => {
-  return (
-      <Button
-        onPress={() => {
-          alert('You tapped the button!');
-        }}
-        title="Press Me Here"
-        color="#841584"
-      />
-    )
-  }
-
- const TouchFoo=({ touch, buttonText, buttonStyle, val }) => {
-  const clicky=(e) => {
-    touch(e, val)
-  }
-  return (
-    <TouchableHighlight 
-      style={styles.touchable}
-      onPress={clicky}
-      underlayColor="white"
-      // value={ val }
-    >
-      <View style={buttonStyle}>
-        <Text style={styles.buttonText}>{`${buttonText}`}</Text>
-      </View>
-    </TouchableHighlight>
-  )
- } 
 
 
   
@@ -102,21 +51,23 @@ export default class HelloWorldApp extends Component {
 
   _handleOperator(e, val) {
     const {currentVal, runningVal, operator} = this.state
-    const sum = !operator ? currentVal.join(""): doMath(Number(runningVal), Number(currentVal.join("")), operator)
+    const sum = !operator ? currentVal.join(""): helpers.doMath(Number(runningVal), Number(currentVal.join("")), operator)
     const op = val === "="? undefined: val;
     this.setState({ runningVal:sum, operator: op, displayVal: sum, currentVal: [] })
   }
 
   _handleEquals(e, val, active) {
     const {currentVal, runningVal, operator} = this.state
-    const sum = !operator && !active? currentVal.join(""): doMath(Number(runningVal), Number(currentVal.join("")), operator)
-    this.setState({ runningVal:sum, operator: undefined, displayVal: sum, currentVal: Array.from(String(sum), Number) })
+    const sum = !operator && !active? currentVal.join(""): helpers.doMath(Number(runningVal), Number(currentVal.join("")), operator)
+    // this.setState({ runningVal:sum, operator: undefined, displayVal: sum, currentVal: Array.from(String(sum), Number) })
+    this.setState({ runningVal:sum, operator: operator, displayVal: sum, currentVal: [] })
+
   }
 
   _onPressButton(e, v) {   
     const {currentVal, operator, runningVal} = this.state
-    const leadZero = handleLeadZero(v, currentVal)
-    const eqlActive = handleEqlButtonState(operator, runningVal)
+    const leadZero = helpers.handleLeadZero(v, currentVal)
+    const eqlActive = helpers.handleEqlButtonState(operator, runningVal)
     const decimal = currentVal.some((el) => el === ".")
     const r = decimal && v === "." || leadZero? currentVal: [...currentVal, v]
     this.setState({ currentVal: r, displayVal: leadZero? 0: r.join(""), active: !leadZero, eqlActive: eqlActive })
@@ -130,7 +81,7 @@ export default class HelloWorldApp extends Component {
     // console.log(this.state)
     return ( 
     <View>
-      <ClearButton />
+      {/* <ClearButton /> */}
     <AppContainer 
       isLoaded = { this.state.fontsLoaded }
       f = { this._onPressButton } 
