@@ -13,7 +13,7 @@ const customFonts = {
     'Ginger': require('../assets/fonts/ginger-bold.ttf')
   };
 
-const buttonArray = [1,2,3,4,5,6,7,8,9,0]; 
+// const buttonArray = [1,2,3,4,5,6,7,8,9,0]; 
 
 
 const AppContainer = ({ isLoaded = false, f, fOp, fClear, fEql, buttonStyle, windowVal, active = false, eqlActive = false }) => {
@@ -39,7 +39,7 @@ const AppContainer = ({ isLoaded = false, f, fOp, fClear, fEql, buttonStyle, win
         <View style={styles.keyboardContainer}>
             <View style={styles.keyboardLeft}>
                 <View style={styles.valueKeys}> 
-                    { [1,2,3,4,5,6,7,8,9,0,"."].map((el, i) => {
+                    { buttonArray.map((el, i) => {
                         return (
                         <CalcButton 
                             f = { f } 
