@@ -75,15 +75,7 @@ const ButtonFoo=() => {
   )
  } 
 
- const doMath = (val1, val2, op) => {
-   console.log("operator", op)
-   return op === "+"? (val1+val2): op === "-"? (val1-val2): op === "÷"? (val1/val2): op === "x"? (val1*val2): "error";
- }
 
- const handleEqlButtonState = (runningVal, operator) => operator && runningVal;
- const handleLeadZero = (v, r) =>  v === 0 && r.length === 0; 
-
- const rando = (val) => Math.floor(Math.random() * val) + 1 ; 
   
 export default class HelloWorldApp extends Component {
   constructor(props) {
