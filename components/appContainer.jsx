@@ -9,9 +9,9 @@ import { ClearButton } from './resusable/clearButton';
 
 // import { CalcButton } from "reusable/calcButton";
 
-const customFonts = {
-    'Ginger': require('../assets/fonts/ginger-bold.ttf')
-  };
+// const customFonts = {
+//     'Ginger': require('../assets/fonts/ginger-bold.ttf')
+//   };
 
 // const buttonArray = [1,2,3,4,5,6,7,8,9,0]; 
 

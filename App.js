@@ -7,6 +7,7 @@ import { AppLoading } from 'expo';
 
 import * as Font from 'expo-font';
 
+import { customFonts } from './imports/fonts'
 import Svg, { Circle, Path, G } from "react-native-svg"
 
 
@@ -19,9 +20,6 @@ import { AppContainer } from "./components/appContainer";
 import { ClearButton } from "./components/resusable/clearButton";
 
 
-const customFonts = {
-  'Ginger': require('./assets/fonts/ginger-bold.ttf')
-};
 
 
 const buttonArray = [1,2,3,4,5,6,7,8,9,0];
