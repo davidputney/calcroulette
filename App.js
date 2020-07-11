@@ -88,7 +88,7 @@ const ButtonFoo=() => {
 export default class HelloWorldApp extends Component {
   constructor(props) {
     super(props)
-    this.state = { fontsLoaded: false, currentVal: [], retainedVal: 0, operator: undefined, runningVal: undefined, displayVal: 0, active: false, eqlActive:false }
+    this.state = { fontsLoaded: false, currentVal: [], operator: undefined, runningVal: undefined, displayVal: 0, active: false, eqlActive:false }
     this._onPressButton = this._onPressButton.bind(this)
     this._handleOperator = this._handleOperator.bind(this)
     this._handleClear = this._handleClear.bind(this)
@@ -111,9 +111,6 @@ export default class HelloWorldApp extends Component {
   }
 
   _handleOperator(e, val) {
-
-
-
     const {currentVal, runningVal, operator} = this.state
     const sum = !operator ? currentVal.join(""): doMath(Number(runningVal), Number(currentVal.join("")), operator)
     const op = val === "="? undefined: val;
@@ -128,13 +125,10 @@ export default class HelloWorldApp extends Component {
 
   _onPressButton(e, v) {   
     const {currentVal, operator, runningVal} = this.state
-
     const leadZero = handleLeadZero(v, currentVal)
     const eqlActive = handleEqlButtonState(operator, runningVal)
     const decimal = currentVal.some((el) => el === ".")
-
     const r = decimal && v === "." || leadZero? currentVal: [...currentVal, v]
-
     this.setState({ currentVal: r, displayVal: leadZero? 0: r.join(""), active: !leadZero, eqlActive: eqlActive })
   }
 
