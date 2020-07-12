@@ -3,20 +3,21 @@ import { View } from 'react-native';
 import { styles } from "../../styles/styles";
 import { buttons } from "../../styles/buttons";
 import { CalcButton } from '../resusable/calcButton';
-import { buttonArray } from '../../imports/button-values'
+import { operators } from '../../imports/button-values'
 
 const OperatorKeys = ({ f }) => {
 return (
 <View style={styles.keyboardRight}>
-    { ["+","-","x","÷"].map((el, i) => {
+    { operators.map((el, i) => {
+        const {value, display } = el
         return (
             <CalcButton 
                 f = { f } 
-                buttonText = { el } 
+                buttonText = { display } 
                 textStyle = {  styles.buttonOperatorText }
                 touchable = { buttons.touchableWide }
                 buttonStyle = { buttons.buttonOperator }
-                val={ el }
+                val={ value }
                 key = { i }
             />     
             )
